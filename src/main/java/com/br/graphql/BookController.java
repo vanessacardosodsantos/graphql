@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookController {
 
     @QueryMapping
-    public Book bookById(@Argument String id) {
+    public Book bookById(@Argument long id) {
         return Book.getById(id);
     }
 

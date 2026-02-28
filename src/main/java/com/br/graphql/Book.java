@@ -3,15 +3,18 @@ package com.br.graphql;
 import java.util.Arrays;
 import java.util.List;
 
-record Book(String id, String name, int pageCount, String authorId) {
+public record Book(long id, String name, int pageCount, long authorId) {
 
-    private static List<Book> books = Arrays.asList(
-            new Book("book-1", "Harry Potter and the Philosopher's Stone", 223, "author-1"),
-            new Book("book-2", "Moby Dick", 635, "author-2"),
-            new Book("book-3", "Interview with the vampire", 371, "author-3")
+    private static final List<Book> BOOKS = Arrays.asList(
+            new Book(1L, "Harry Potter and the Philosopher's Stone", 223, 1),
+            new Book(2L, "Moby Dick", 635, 2L),
+            new Book(3L, "Interview with the vampire", 371, 3)
     );
 
-    public static Book getById(String id) {
-        return books.stream().filter(book -> book.id().equals(id)).findFirst().orElse(null);
+    public static Book getById(long id) {
+        return BOOKS.stream()
+                .filter(book -> book.id() == id)
+                .findFirst()
+                .orElse(null);
     }
 }
