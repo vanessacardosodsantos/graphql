@@ -1,0 +1,30 @@
+info:
+  name: Books By Genre
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: http://localhost:8080/graphql
+  body:
+    query: |-
+      query findBooks($filter: BooksFilter) {
+        getBooks(filter: $filter) {
+          name,
+          pageCount
+        }
+      }
+    variables: |-
+      {
+        "filter": {
+          "maxPages": 700,
+          "genres": ["ACTION", "ADVENTURE"] 
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

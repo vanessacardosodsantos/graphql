@@ -1,5 +1,7 @@
 type Query {
   bookById(id: ID!): Book
+  authorById(id: ID!): Author
+  getBooks(filter: BooksFilter): [Book!]!
 }
 
 type Book {
@@ -13,4 +15,18 @@ type Author {
   id: ID!
   firstName: String
   lastName: String
+  publishedBooks: [Book!]!
+}
+
+enum Genre {
+  ACTION
+  ADVENTURE
+  COMEDY
+  TERROR
+  TECHNICAL
+}
+
+input BooksFilter {
+    genres: [Genre],
+    maxPages: Int
 }

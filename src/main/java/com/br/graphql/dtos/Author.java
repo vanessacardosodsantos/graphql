@@ -1,4 +1,4 @@
-package com.br.graphql;
+package com.br.graphql.dtos;
 
 import java.util.Arrays;
 import java.util.List;

@@ -25,3 +25,9 @@ query bookDetails {
   }
 }
 ```
+
+## Via Bruno 
+
+- Baixar o http client Bruno https://www.usebruno.com/
+- Abrir a pasta `Requests GraphQL` na aplicação
+- Executar o request alterando as variáveis

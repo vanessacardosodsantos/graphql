@@ -1,0 +1,31 @@
+info:
+  name: Author-By-Id
+  type: graphql
+  seq: 2
+
+graphql:
+  method: POST
+  url: http://localhost:8080/graphql
+  body:
+    query: |-
+      query authorDetails($id: ID!) {
+        authorById(id: $id){
+          id
+          firstName
+          publishedBooks {
+            name,
+            pageCount
+          }
+        }
+      }
+    variables: |-
+      {
+        "id":1
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
