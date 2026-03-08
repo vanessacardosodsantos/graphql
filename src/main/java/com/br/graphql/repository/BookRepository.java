@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long>, JpaSpecificationExecutor<Book> {
 
+    // TODO com GraphQL talvez é mais interessante remover o EntityGraph e deixar a busca via SchemaMapping
     @Override
     @NonNull
     @EntityGraph(attributePaths = "author")

@@ -20,7 +20,7 @@ public class BookSpecifications {
             if (genres == null || genres.isEmpty())
                 return null;
 
-            query.distinct(true);
+            query.distinct(true); // TODO Testar melhor para verificar necessidade
 
             Join<Book, Genre> joinGenres = root.join("genres", JoinType.INNER);
 
