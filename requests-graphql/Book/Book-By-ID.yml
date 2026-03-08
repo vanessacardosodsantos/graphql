@@ -1,0 +1,35 @@
+info:
+  name: Book-By-ID
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: "{{url}}"
+  body:
+    query: |-
+      query bookDetails($id: ID!) {
+        bookById(id: $id){
+          id
+          name
+          pageCount
+          genres {
+            name
+          }
+          author {
+            firstName
+            lastName
+          }
+        }
+      }
+    variables: |-
+      {
+        "id":5
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

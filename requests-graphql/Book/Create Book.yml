@@ -1,0 +1,34 @@
+info:
+  name: Create Book
+  type: graphql
+  seq: 1
+
+graphql:
+  method: POST
+  url: "{{url}}"
+  body:
+    query: |-
+      mutation CreateBook($input: BookInput!) {
+      	createBook(book: $input) {
+        	name
+          genres {
+            name
+          }
+        }
+      }
+    variables: |-
+      {
+        "input": {
+          "name":"Ordem Paranormal",
+          "pageCount":371,
+          "genres": [1],
+          "authorId": 3
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

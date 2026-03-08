@@ -1,0 +1,35 @@
+info:
+  name: Update Book
+  type: graphql
+  seq: 2
+
+graphql:
+  method: POST
+  url: "{{url}}"
+  body:
+    query: |-
+      mutation UpdateBook($id:ID!, $input: BookInput!) {
+      	updateBook(id:$id, book: $input) {
+        	name
+          genres {
+            name
+          }
+        }
+      }
+    variables: |-
+      {
+        "id":5,
+        "input": {
+          "name":"Ordem Paranormal RPG",
+          "pageCount":223,
+          "genres": [1, 2, 4],
+          "authorId": 2
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

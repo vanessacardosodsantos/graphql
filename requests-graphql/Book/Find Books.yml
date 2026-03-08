@@ -1,0 +1,30 @@
+info:
+  name: Find Books
+  type: graphql
+  seq: 4
+
+graphql:
+  method: POST
+  url: "{{url}}"
+  body:
+    query: |-
+      query findBooks($filter: BooksFilter) {
+        getBooks(filter: $filter) {
+          name,
+          pageCount
+        }
+      }
+    variables: |-
+      {
+        "filter": {
+          "maxPages": 300,
+          "genres": [1] 
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
