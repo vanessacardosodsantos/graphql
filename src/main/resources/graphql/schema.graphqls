@@ -1,3 +1,5 @@
+scalar Long
+
 type Query {
   bookById(id: ID!): Book
   authorById(id: ID!): Author
@@ -8,6 +10,7 @@ type Book {
   id: ID!
   name: String
   pageCount: Int
+  genres:[Genre!]!
   author: Author
 }
 
@@ -18,27 +21,38 @@ type Author {
   publishedBooks: [Book!]!
 }
 
+type Genre {
+  name: String
+}
+
 type Mutation {
   #author
   createAuthor(author: AuthorInput!): Author
   updateAuthor(id: ID!, author: AuthorInput!): Author
   deleteAuthor(id: ID!): Boolean
-}
 
-enum Genre {
-  ACTION
-  ADVENTURE
-  COMEDY
-  TERROR
-  TECHNICAL
+  #book
+  createBook(book: BookInput): Book
+  updateBook(id: ID!, book: BookInput!): Book
+  deleteBook(id: ID!): Boolean
 }
 
 input BooksFilter {
-  genres: [Genre],
+  genres: [Int],
   maxPages: Int
 }
+
+# É interessante separar esses inputs em create e update, pois para o update os campos não precisam ser obrigatórios
+# já que podemos atualizar apenas campos especificos. Feito dessa forma apenas para acelerar o projeto exemplo.
 
 input AuthorInput {
   firstName: String!
   lastName: String!
+}
+
+input BookInput {
+  name: String!
+  pageCount: Int!
+  genres: [Int!]!
+  authorId: Long
 }

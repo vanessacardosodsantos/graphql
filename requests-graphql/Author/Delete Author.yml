@@ -5,7 +5,7 @@ info:
 
 graphql:
   method: POST
-  url: http://localhost:8080/graphql
+  url: "{{url}}"
   body:
     query: |-
       mutation UpdateAuthor($id:ID!) {

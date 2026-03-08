@@ -21,7 +21,9 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-graphql")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
-	implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	// Source: https://github.com/graphql-java/graphql-java-extended-scalars
+	implementation("com.graphql-java:graphql-java-extended-scalars:24.0")
 	// Source: https://mvnrepository.com/artifact/org.postgresql/postgresql
 	implementation("org.postgresql:postgresql:42.7.10")
 	testImplementation("org.springframework.boot:spring-boot-starter-graphql-test")

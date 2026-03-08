@@ -1,11 +1,11 @@
 info:
   name: Author-By-Id
   type: graphql
-  seq: 1
+  seq: 2
 
 graphql:
   method: POST
-  url: http://localhost:8080/graphql
+  url: "{{url}}"
   body:
     query: |-
       query authorDetails($id: ID!) {

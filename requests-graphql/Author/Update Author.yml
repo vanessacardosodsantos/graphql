@@ -1,11 +1,11 @@
 info:
   name: Update Author
   type: graphql
-  seq: 2
+  seq: 3
 
 graphql:
   method: POST
-  url: http://localhost:8080/graphql
+  url: "{{url}}"
   body:
     query: |-
       mutation UpdateAuthor($id:ID!, $input: AuthorInput!) {

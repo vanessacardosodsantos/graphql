@@ -1,7 +1,7 @@
 package com.br.graphql.controllers;
 
-import com.br.graphql.dtos.inputs.AuthorInput;
-import com.br.graphql.dtos.Book;
+import com.br.graphql.models.Book;
+import com.br.graphql.service.dtos.inputs.AuthorInput;
 import com.br.graphql.models.Author;
 import com.br.graphql.service.AuthorService;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -41,6 +41,6 @@ public class AuthorController {
 
     @SchemaMapping
     public Author author(Book book) {
-        return authorService.findAuthor(book.authorId());
+        return book.getAuthor();
     }
 }

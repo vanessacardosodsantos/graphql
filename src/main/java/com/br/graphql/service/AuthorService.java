@@ -1,6 +1,6 @@
 package com.br.graphql.service;
 
-import com.br.graphql.dtos.inputs.AuthorInput;
+import com.br.graphql.service.dtos.inputs.AuthorInput;
 import com.br.graphql.exceptions.GraphQLEntityNotFoundException;
 import com.br.graphql.models.Author;
 import com.br.graphql.repository.AuthorRepository;
@@ -29,6 +29,10 @@ public class AuthorService {
         if(optional.isEmpty())
             throw new GraphQLEntityNotFoundException("Author not found");
 
+        /*
+            Sem validação no update apenas para facilitar, a ideia aqui é apenas mostrar
+            o GraphQL funcionando
+         */
         Author savedAuthor = optional.get();
 
         savedAuthor.setFirstName(author.firstName());

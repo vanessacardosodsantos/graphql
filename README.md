@@ -8,6 +8,10 @@ Implementação da linguagem de consulta GraphQL
 
 # Para execução 
 - Run no Application
+- Rodar o comando `docker compose up -d` estando na pasta raiz da aplicação
+- Executar o arquivo `insert.sql` no banco para inserir alguns dados de teste
+
+## Consultas via Graphiql
 - Acessar a Url: http://localhost:8080/graphiql
 - Query exemplo para consulta: 
 
@@ -26,8 +30,7 @@ query bookDetails {
 }
 ```
 
-## Via Bruno 
-
+## Via Bruno
 - Baixar o http client Bruno https://www.usebruno.com/
-- Abrir a pasta `Requests GraphQL` na aplicação
+- Abrir a pasta `requests-graphql` na aplicação
 - Executar o request alterando as variáveis
