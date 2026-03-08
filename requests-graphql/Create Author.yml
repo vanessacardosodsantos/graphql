@@ -1,0 +1,30 @@
+info:
+  name: Create Author
+  type: graphql
+  seq: 4
+
+graphql:
+  method: POST
+  url: http://localhost:8080/graphql
+  body:
+    query: |-
+      mutation CreateAuthor($input: AuthorInput!) {
+          createAuthor(author: $input) {
+            firstName
+            lastName
+          }
+        }
+    variables: |-
+      {
+        "input": {
+          "firstName":"Clarice",
+          "lastName":"Linspector"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

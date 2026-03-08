@@ -1,5 +1,7 @@
 package com.br.graphql.dtos;
 
+import com.br.graphql.dtos.inputs.BooksFilter;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;

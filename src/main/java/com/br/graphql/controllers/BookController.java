@@ -1,8 +1,8 @@
-package com.br.graphql;
+package com.br.graphql.controllers;
 
-import com.br.graphql.dtos.Author;
 import com.br.graphql.dtos.Book;
-import com.br.graphql.dtos.BooksFilter;
+import com.br.graphql.dtos.inputs.BooksFilter;
+import com.br.graphql.models.Author;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
@@ -19,22 +19,12 @@ public class BookController {
     }
 
     @QueryMapping
-    public Author authorById(@Argument long id) {
-        return Author.getById(id);
-    }
-
-    @QueryMapping
     public List<Book> getBooks(@Argument BooksFilter filter) {
         return Book.getBooksWithFilter(filter);
     }
 
     @SchemaMapping
-    public Author author(Book book) {
-        return Author.getById(book.authorId());
-    }
-
-    @SchemaMapping
     public List<Book> publishedBooks(Author author) {
-        return Book.getByAuthor(author.id());
+        return Book.getByAuthor(author.getId());
     }
 }

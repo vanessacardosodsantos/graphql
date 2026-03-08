@@ -18,6 +18,11 @@ type Author {
   publishedBooks: [Book!]!
 }
 
+type Mutation {
+  #author
+  createAuthor(author: AuthorInput): Author
+}
+
 enum Genre {
   ACTION
   ADVENTURE
@@ -27,6 +32,11 @@ enum Genre {
 }
 
 input BooksFilter {
-    genres: [Genre],
-    maxPages: Int
+  genres: [Genre],
+  maxPages: Int
+}
+
+input AuthorInput {
+  firstName: String!
+  lastName: String!
 }

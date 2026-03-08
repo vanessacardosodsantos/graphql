@@ -21,6 +21,9 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-graphql")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
+	implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+	// Source: https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation("org.postgresql:postgresql:42.7.10")
 	testImplementation("org.springframework.boot:spring-boot-starter-graphql-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")

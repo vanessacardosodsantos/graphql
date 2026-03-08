@@ -1,4 +1,7 @@
-package com.br.graphql.dtos;
+package com.br.graphql.dtos.inputs;
+
+import com.br.graphql.dtos.Book;
+import com.br.graphql.dtos.Genre;
 
 import java.util.Collections;
 import java.util.List;
