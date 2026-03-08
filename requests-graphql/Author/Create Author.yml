@@ -17,8 +17,8 @@ graphql:
     variables: |-
       {
         "input": {
-          "firstName":"Kelly",
-          "lastName":"Gomes"
+          "firstName":"Agatha",
+          "lastName":"Christie"
         }
       }
   auth: inherit
