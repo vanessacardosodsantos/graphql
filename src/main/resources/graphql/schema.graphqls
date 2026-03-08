@@ -20,7 +20,9 @@ type Author {
 
 type Mutation {
   #author
-  createAuthor(author: AuthorInput): Author
+  createAuthor(author: AuthorInput!): Author
+  updateAuthor(id: ID!, author: AuthorInput!): Author
+  deleteAuthor(id: ID!): Boolean
 }
 
 enum Genre {

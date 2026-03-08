@@ -1,24 +1,24 @@
 info:
-  name: Books By Genre
+  name: Create Author
   type: graphql
-  seq: 2
+  seq: 3
 
 graphql:
   method: POST
   url: http://localhost:8080/graphql
   body:
     query: |-
-      query findBooks($filter: BooksFilter) {
-        getBooks(filter: $filter) {
-          name,
-          pageCount
+      mutation CreateAuthor($input: AuthorInput!) {
+      	createAuthor(author: $input) {
+        	firstName
+          lastName
         }
       }
     variables: |-
       {
-        "filter": {
-          "maxPages": 700,
-          "genres": ["ACTION", "ADVENTURE"] 
+        "input": {
+          "firstName":"Kelly",
+          "lastName":"Gomes"
         }
       }
   auth: inherit

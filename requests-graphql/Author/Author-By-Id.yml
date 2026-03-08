@@ -1,25 +1,26 @@
 info:
-  name: Books By Genre
+  name: Author-By-Id
   type: graphql
-  seq: 2
+  seq: 1
 
 graphql:
   method: POST
   url: http://localhost:8080/graphql
   body:
     query: |-
-      query findBooks($filter: BooksFilter) {
-        getBooks(filter: $filter) {
-          name,
-          pageCount
+      query authorDetails($id: ID!) {
+        authorById(id: $id){
+          id
+          firstName
+          publishedBooks {
+            name,
+            pageCount
+          }
         }
       }
     variables: |-
       {
-        "filter": {
-          "maxPages": 700,
-          "genres": ["ACTION", "ADVENTURE"] 
-        }
+        "id":1
       }
   auth: inherit
 

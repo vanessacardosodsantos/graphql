@@ -1,24 +1,25 @@
 info:
-  name: Create Author
+  name: Update Author
   type: graphql
-  seq: 4
+  seq: 2
 
 graphql:
   method: POST
   url: http://localhost:8080/graphql
   body:
     query: |-
-      mutation CreateAuthor($input: AuthorInput!) {
-          createAuthor(author: $input) {
-            firstName
-            lastName
-          }
+      mutation UpdateAuthor($id:ID!, $input: AuthorInput!) {
+        updateAuthor(id:$id, author: $input) {
+          firstName
+          lastName
         }
+      }
     variables: |-
       {
+        "id":1,
         "input": {
           "firstName":"Clarice",
-          "lastName":"Linspector"
+          "lastName":"Cristie"
         }
       }
   auth: inherit

@@ -1,26 +1,19 @@
 info:
-  name: Author-By-Id
+  name: Delete Author
   type: graphql
-  seq: 2
+  seq: 4
 
 graphql:
   method: POST
   url: http://localhost:8080/graphql
   body:
     query: |-
-      query authorDetails($id: ID!) {
-        authorById(id: $id){
-          id
-          firstName
-          publishedBooks {
-            name,
-            pageCount
-          }
-        }
+      mutation UpdateAuthor($id:ID!) {
+        deleteAuthor(id:$id)
       }
     variables: |-
       {
-        "id":1
+        "id":3
       }
   auth: inherit
 

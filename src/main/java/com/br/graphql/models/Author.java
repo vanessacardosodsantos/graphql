@@ -16,6 +16,8 @@ public class Author {
 
     private String lastName;
 
+    protected Author() {}
+
     public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;

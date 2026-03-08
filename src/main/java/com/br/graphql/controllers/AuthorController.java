@@ -24,6 +24,16 @@ public class AuthorController {
         return authorService.createAuthor(author);
     }
 
+    @MutationMapping
+    public Author updateAuthor(@Argument long id, @Argument AuthorInput author) {
+        return authorService.updateAuthor(id, author);
+    }
+
+    @MutationMapping
+    public boolean deleteAuthor(@Argument long id) {
+        return authorService.deleteAuthor(id);
+    }
+
     @QueryMapping
     public Author authorById(@Argument long id) {
         return authorService.findAuthor(id);
