@@ -40,7 +40,7 @@ public class AuthorController {
     }
 
     @SchemaMapping
-    public Author author(Book book) {
+    public Author authorAll(Book book) {
         return book.getAuthor();
     }
 }

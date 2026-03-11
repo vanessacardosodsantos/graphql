@@ -42,9 +42,6 @@ input BooksFilter {
   maxPages: Int
 }
 
-# É interessante separar esses inputs em create e update, pois para o update os campos não precisam ser obrigatórios
-# já que podemos atualizar apenas campos especificos. Feito dessa forma apenas para acelerar o projeto exemplo.
-
 input AuthorInput {
   firstName: String!
   lastName: String!

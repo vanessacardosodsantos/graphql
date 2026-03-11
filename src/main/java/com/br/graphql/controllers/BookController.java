@@ -5,13 +5,12 @@ import com.br.graphql.service.BookService;
 import com.br.graphql.service.dtos.inputs.BookInput;
 import com.br.graphql.service.dtos.inputs.BooksFilter;
 import com.br.graphql.models.Author;
-import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.MutationMapping;
-import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.graphql.data.method.annotation.SchemaMapping;
+import org.springframework.graphql.data.method.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class BookController {
@@ -50,5 +49,14 @@ public class BookController {
     @SchemaMapping
     public List<Book> publishedBooks(Author author) {
         return bookService.findBookByAuthor(author);
+    }
+
+    @BatchMapping
+    public Map<Book, Author> author(List<Book> books) {
+        return books.stream()
+                .collect(Collectors.toMap(
+                        book -> book,
+                        Book::getAuthor
+                ));
     }
 }
