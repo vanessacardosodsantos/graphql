@@ -3,6 +3,7 @@ package com.br.graphql.service;
 import com.br.graphql.exceptions.GraphQLEntityNotFoundException;
 import com.br.graphql.models.Author;
 import com.br.graphql.models.Book;
+import com.br.graphql.models.BookGenre;
 import com.br.graphql.models.Genre;
 import com.br.graphql.repository.BookRepository;
 import com.br.graphql.service.dtos.inputs.BookInput;
@@ -109,5 +110,9 @@ public class BookService {
 
     public List<Book> findBookByAuthor(Author author) {
         return repository.findByAuthorId(author.getId());
+    }
+
+    public List<BookGenre> findGenresByIdsBooks(List<Long> books) {
+        return genreService.findAllByBookIdIn(books);
     }
 }

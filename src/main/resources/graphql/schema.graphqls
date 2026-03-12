@@ -18,6 +18,7 @@ type Author {
   id: ID!
   firstName: String
   lastName: String
+  name: String
   publishedBooks: [Book!]!
 }
 

@@ -11,7 +11,10 @@ graphql:
       query findBooks($filter: BooksFilter) {
         getBooks(filter: $filter) {
           name,
-          pageCount
+          pageCount,
+          author {
+            name
+          }
         }
       }
     variables: |-

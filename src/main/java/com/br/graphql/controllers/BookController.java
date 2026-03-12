@@ -1,15 +1,19 @@
 package com.br.graphql.controllers;
 
 import com.br.graphql.models.Book;
+import com.br.graphql.models.BookGenre;
+import com.br.graphql.models.Genre;
 import com.br.graphql.service.BookService;
 import com.br.graphql.service.dtos.inputs.BookInput;
 import com.br.graphql.service.dtos.inputs.BooksFilter;
 import com.br.graphql.models.Author;
+import org.dataloader.DataLoader;
 import org.springframework.graphql.data.method.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Controller
@@ -52,11 +56,29 @@ public class BookController {
     }
 
     @BatchMapping
-    public Map<Book, Author> author(List<Book> books) {
+    public Map<Book, List<Genre>> genres(List<Book> books) {
+
+        List<Long> idsBooks = books.stream()
+                .map(Book::getId)
+                .toList();
+
+        List<BookGenre> bookGenres = bookService.findGenresByIdsBooks(idsBooks);
+
+        Map<Long, List<Genre>> genresGroupedByBookId = bookGenres.stream()
+                .collect(Collectors.groupingBy(
+                        BookGenre::getBookId,
+                        Collectors.mapping(BookGenre::getGenre, Collectors.toList())
+                ));
+
         return books.stream()
                 .collect(Collectors.toMap(
                         book -> book,
-                        Book::getAuthor
-                ));
+                        book -> genresGroupedByBookId.get(book.getId()
+                        )));
+    }
+
+    @SchemaMapping
+    public CompletableFuture<Author> author(Book book, DataLoader<Long, Author> authorLoader) {
+        return authorLoader.load(book.getAuthorId());
     }
 }

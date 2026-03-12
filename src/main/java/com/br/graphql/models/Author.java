@@ -51,16 +51,11 @@ public class Author {
     public final boolean equals(Object o) {
         if (!(o instanceof Author author)) return false;
 
-        return getId() == author.getId()
-                && Objects.equals(getFirstName(), author.getFirstName())
-                && Objects.equals(getLastName(), author.getLastName());
+        return getId() == author.getId();
     }
 
     @Override
     public int hashCode() {
-        int result = Long.hashCode(getId());
-        result = 31 * result + Objects.hashCode(getFirstName());
-        result = 31 * result + Objects.hashCode(getLastName());
-        return result;
+       return Long.hashCode(getId());
     }
 }

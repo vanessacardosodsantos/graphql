@@ -24,7 +24,10 @@ public class Book {
     )
     private final Set<Genre> genres = new HashSet<>();
 
-    @ManyToOne
+    @Column(name = "author_id", insertable = false, updatable = false)
+    private Long authorId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", referencedColumnName = "id", nullable = false)
     private Author author;
 
@@ -74,25 +77,20 @@ public class Book {
         this.author = author;
     }
 
+    public Long getAuthorId() {
+        return authorId;
+    }
+
     @Override
     public final boolean equals(Object o) {
         if (!(o instanceof Book book)) return false;
 
-        return getId() == book.getId()
-                && getPageCount() == book.getPageCount()
-                && Objects.equals(getName(), book.getName())
-                && Objects.equals(getGenres(), book.getGenres())
-                && Objects.equals(getAuthor(), book.getAuthor());
+        return getId() == book.getId();
     }
 
     @Override
     public int hashCode() {
-        int result = Long.hashCode(getId());
-        result = 31 * result + Objects.hashCode(getName());
-        result = 31 * result + getPageCount();
-        result = 31 * result + Objects.hashCode(getGenres());
-        result = 31 * result + Objects.hashCode(getAuthor());
-        return result;
+        return Long.hashCode(getId());
     }
 
     public void updateGenres(List<Genre> genres) {

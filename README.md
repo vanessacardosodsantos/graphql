@@ -3,7 +3,7 @@ Implementação da linguagem de consulta GraphQL com Spring Boot, cobrindo os pr
 
 # Tecnologias
 - Gradle
-- Spring Boot 3
+- Spring Boot 4
 - Java 25
 - PostgreSQL (via Docker)
 - Spring for GraphQL
@@ -17,7 +17,7 @@ Implementação da linguagem de consulta GraphQL com Spring Boot, cobrindo os pr
 | Queries | ✅ | `BookController`, `AuthorController` |
 | Mutations | ✅ | `BookController`, `AuthorController` |
 | N+1 Problem + DataLoader | ✅ | `BookController#author` com `@BatchMapping`, `AuthorDataLoader` |
-
+|Scalar Types|✅|`GraphQLConfig` configurando tipo `Long`
 ---
 
 # Para execução

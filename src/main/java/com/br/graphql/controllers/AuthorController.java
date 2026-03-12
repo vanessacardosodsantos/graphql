@@ -40,7 +40,7 @@ public class AuthorController {
     }
 
     @SchemaMapping
-    public Author authorAll(Book book) {
-        return book.getAuthor();
+    public String name(Author author) {
+        return author.getFirstName() +  " " + author.getLastName();
     }
 }
