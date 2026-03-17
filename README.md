@@ -11,13 +11,14 @@ Implementação da linguagem de consulta GraphQL com Spring Boot, cobrindo os pr
 
 # Conceitos cobertos
 
-| Conceito | Status | Onde encontrar |
-|---|---|---|
-| Schema | ✅ | `src/main/resources/graphql/schema.graphqls` |
-| Queries | ✅ | `BookController`, `AuthorController` |
-| Mutations | ✅ | `BookController`, `AuthorController` |
-| N+1 Problem + DataLoader | ✅ | `BookController#author` com `@BatchMapping`, `AuthorDataLoader` |
-|Scalar Types|✅|`GraphQLConfig` configurando tipo `Long`
+| Conceito                 | Status | Onde encontrar                                                  |
+|--------------------------|--------|-----------------------------------------------------------------|
+| Schema                   | ✅      | `src/main/resources/graphql/schema.graphqls`                    |
+| Queries                  | ✅      | `BookController`, `AuthorController`                            |
+| Mutations                | ✅      | `BookController`, `AuthorController`                            |
+| N+1 Problem + DataLoader | ✅      | `BookController#author` com `@BatchMapping`, `AuthorDataLoader` |
+| Scalar Types             | ✅      | `GraphQLConfig` configurando tipo `Long`                        |
+
 ---
 
 # Para execução

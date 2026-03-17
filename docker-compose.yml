@@ -8,6 +8,7 @@ services:
       POSTGRES_DB: book-shop
     ports:
       - "5432:5432"
+    pull_policy: always
   pgadmin:
     image: dpage/pgadmin4
     restart: always
