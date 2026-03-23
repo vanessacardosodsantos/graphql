@@ -1,5 +1,8 @@
 # GraphQL
-Implementação da linguagem de consulta GraphQL com Spring Boot, cobrindo os principais conceitos da tecnologia.
+Implementação da linguagem de consulta GraphQL com Spring Boot. Usamos o conceito de uma livraria virtual. 
+
+# O que é o GraphQl?
+É uma linguagem de consulta para APIs runtime, criada pelo Facebook em 2012 e aberta ao público em 2015. Diferente do REST, o **cliente** especifica exatamente os dados que precisa.
 
 # Tecnologias
 - Gradle
